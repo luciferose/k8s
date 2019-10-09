@@ -1,1 +1,1 @@
-KUBELET_ARGS="--kubeconfig=/etc/kubernetes/kubeconfig --hostname-override=192.168.0.6 --logtostderr=false --log-dir=/var/log/kubernetes --v=0"
+KUBELET_ARGS="--kubeconfig=/etc/kubernetes/kubeconfig --hostname-override=192.168.0.6 --logtostderr=false --log-dir=/var/log/kubernetes --v=0 --pod-infra-container-image=registry.access.redhat.com/rhel7/pod-infrastructure:latest"
