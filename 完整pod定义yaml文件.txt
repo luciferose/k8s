@@ -76,3 +76,15 @@ spec:   #pod中容器的详细定义
       items:
       - key: string
         path: string
+
+#后期添加容器运行值钱运行的任务和关闭之前运行的任务
+
+    lifecycle: #生命周期管理
+      postStart: #容器运行之前运行的任务
+        exec:
+          command: #容器具体运行的命令
+            - 'sh'
+            - 'yum upgrade -y'
+      preStop: #容器关闭之前运行的任务
+        exec:
+          command: ['service httpd stop'] #容器关闭前运行的命令
