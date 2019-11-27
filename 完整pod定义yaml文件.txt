@@ -12,8 +12,8 @@ spec:   #pod中容器的详细定义
   - name: string    #容器的名称
     image: string   #容器的镜像名称
     imagePullPolicy: [Always | Never | IfNotPresent] #容器镜像的拉取策略 Always（每次都重新拉取）。IfNotPresent（本地有镜像存在使用本地镜像，本地镜像不存在则拉取镜像）。Never（仅使用本地镜像）
-    command: [string]   #容器的启动命令列表，如果不指定则使用镜像打包时使用的启动命令ß
-    args: [strin]   #容器的启动命令参数列表
+    command: [string]   #容器的启动命令列表，如果不指定则使用镜像打包时使用的启动命令
+    args: [string]   #容器的启动命令参数列表
     workingDir: string  #容器的工作目录
     volumeMounts:   #挂载到容器内的存储卷配置
     - name: string  #引用pod定义的共享存储卷的名称，需要使用volumes[]部分定义的共享存储卷名称
@@ -56,7 +56,7 @@ spec:   #pod中容器的详细定义
       privileged: false
   restartPolicy: [Always | Never | OnFailure]   #pod的重启策略，可选值为Never、OnFailure， 默认值为Always（Always：pod一旦终止运行，则无论容器是如何终止的，kubelet都将重启他）（OnFailure：只有pod以非零退出码终止时kubelet
                                                 #才会重启改容器，如果容器正常结束（退出码为0），策kubelet将不会重启他）（Never： pod终止后，kubelet将退出码报告给Master，不会重启改容器）
-  nodeSelector: object  #设置Node的label，以key:value的格式指定，pod将被调度到基友这些Label的Node上
+  nodeSelector: object  #设置Node的label，以key:value的格式指定，pod将被调度到基于这些Label的Node上
   imagePullSecrets: #pull镜像时使用的Secret名称，以name:secretkey格式指定
   - name: string
   hostNetwork: false    #是否使用主机网络模式，默认值是false。设置为True比啊是使用容器使用宿主机网络，不再使用docker网桥，改pod将我要发在同一台宿主机上启动第2个副本。
@@ -77,7 +77,7 @@ spec:   #pod中容器的详细定义
       - key: string
         path: string
 
-#后期添加容器运行值钱运行的任务和关闭之前运行的任务
+#后期添加容器运行之前运行的任务和关闭之前运行的任务
 
     lifecycle: #生命周期管理
       postStart: #容器运行之前运行的任务
