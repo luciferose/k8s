@@ -59,7 +59,7 @@ spec:   #pod中容器的详细定义
   nodeSelector: object  #设置Node的label，以key:value的格式指定，pod将被调度到基于这些Label的Node上
   imagePullSecrets: #pull镜像时使用的Secret名称，以name:secretkey格式指定
   - name: string
-  hostNetwork: false    #是否使用主机网络模式，默认值是false。设置为True比啊是使用容器使用宿主机网络，不再使用docker网桥，改pod将我要发在同一台宿主机上启动第2个副本。
+  hostNetwork: false    #是否使用主机网络模式，默认值是false。设置为True比啊是使用容器使用宿主机网络，不再使用docker网桥，该pod无法在同一台宿主机上启动第2个副本。
   volumes:  #pod定义的共享存储卷
   - name: string #共享存储卷的名称，在一个pod中每个存储卷定义一个名称。容器定义部分的containers[].volumeMounts[].name引用该共享存储卷的名称。volume的类型包括（emptyDir、hostPath、gccPersistentDisk、awsElasticBlockStore、
                  #gitRepo、secret、nfs、iscsi、glusterfs、persistentVolumeClaim、rbd、flexVolume、cider、cephfs、flocker、downwardAPI、fc、azureFiles、configMap、vsphereVolume）
