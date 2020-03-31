@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-slave
+spec:
+  nodeSelector:
+    master: "flase"
+  containers:
+  - image: luksa/kubia
+    name: kubia
